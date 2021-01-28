@@ -1,0 +1,14 @@
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/bin/Debug/netcoreapp2.1/clara_proj5.deps.json
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/bin/Debug/netcoreapp2.1/clara_proj5.runtimeconfig.json
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/bin/Debug/netcoreapp2.1/clara_proj5.runtimeconfig.dev.json
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/bin/Debug/netcoreapp2.1/clara_proj5.dll
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/bin/Debug/netcoreapp2.1/clara_proj5.pdb
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.csprojAssemblyReference.cache
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.csproj.CoreCompileInputs.cache
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.RazorAssemblyInfo.cache
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.RazorAssemblyInfo.cs
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.AssemblyInfoInputs.cache
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.AssemblyInfo.cs
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.RazorTargetAssemblyInfo.cache
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.dll
+/Users/user/Desktop/c_sharp/clara_proj5/clara_proj5/obj/Debug/netcoreapp2.1/clara_proj5.pdb

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="power_codeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ingredients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="Measure" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Recepie_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="RecepieInfoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="CreatedBy_Id" Type="int" />
+    <Property Name="Recepie_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Recepies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Difficulty" Type="int" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CreatedBy_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Pass" Type="nvarchar(max)" />
+    <Property Name="Pin" Type="nvarchar(max)" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="UserStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Ingredients_dbo_Recepies_Recepie_Id">
+    <End Role="Recepies" Type="Self.Recepies" Multiplicity="0..1" />
+    <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recepies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ingredients">
+        <PropertyRef Name="Recepie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RecepieInfoes_dbo_Recepies_Recepie_Id">
+    <End Role="Recepies" Type="Self.Recepies" Multiplicity="0..1" />
+    <End Role="RecepieInfoes" Type="Self.RecepieInfoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recepies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecepieInfoes">
+        <PropertyRef Name="Recepie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RecepieInfoes_dbo_Users_CreatedBy_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RecepieInfoes" Type="Self.RecepieInfoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecepieInfoes">
+        <PropertyRef Name="CreatedBy_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Recepies_dbo_Users_CreatedBy_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Recepies" Type="Self.Recepies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recepies">
+        <PropertyRef Name="CreatedBy_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="power_codeModelStoreContainer">
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecepieInfoes" EntityType="Self.RecepieInfoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recepies" EntityType="Self.Recepies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Ingredients_dbo_Recepies_Recepie_Id" Association="Self.FK_dbo_Ingredients_dbo_Recepies_Recepie_Id">
+      <End Role="Recepies" EntitySet="Recepies" />
+      <End Role="Ingredients" EntitySet="Ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RecepieInfoes_dbo_Recepies_Recepie_Id" Association="Self.FK_dbo_RecepieInfoes_dbo_Recepies_Recepie_Id">
+      <End Role="Recepies" EntitySet="Recepies" />
+      <End Role="RecepieInfoes" EntitySet="RecepieInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RecepieInfoes_dbo_Users_CreatedBy_Id" Association="Self.FK_dbo_RecepieInfoes_dbo_Users_CreatedBy_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RecepieInfoes" EntitySet="RecepieInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Recepies_dbo_Users_CreatedBy_Id" Association="Self.FK_dbo_Recepies_dbo_Users_CreatedBy_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Recepies" EntitySet="Recepies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
